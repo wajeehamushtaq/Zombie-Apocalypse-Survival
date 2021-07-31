@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'geocoder'
+gem 'jquery-rails', '~> 4.4'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
