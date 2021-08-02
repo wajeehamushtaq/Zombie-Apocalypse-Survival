@@ -1,0 +1,26 @@
+<h1>Survivors#index</h1>
+<p>Find me in app/views/survivors/index.html.erb</p>
+
+<h1>Survivors</h1>
+
+<ul>
+  <% @survivors.each do |survivor| %>
+    <li>
+      <%= survivor.name %>
+      <%= image_tag(survivor.avatar) %>
+      <%= link_to like_survivor_path(survivor), class:"like", method: :put do%>
+        <button>infected
+        <span><%= survivor.get_upvotes.size%></span>
+        </button>
+      <%end%>
+
+      <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>
+        <button>uninfected
+        <span><%= survivor.get_downvotes.size%></span>
+        </button>
+      <%end%>
+
+    </li>
+  <% end %>
+</ul>
+

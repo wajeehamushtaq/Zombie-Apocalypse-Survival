@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_commit :add_default_avatar, on: %i[create update]
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+  acts_as_voter
 
   def avatar_thumbnail
     if avatar.attached?
