@@ -12,6 +12,11 @@
         <button>infected
         <span><%= survivor.get_upvotes.size%></span>
         </button>
+        <%if survivor.get_upvotes.size >= 5%>
+          <p>tererew</p>
+        <% else %>
+        <h2>wqewre</h2>
+        <%end%>
       <%end%>
 
       <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>

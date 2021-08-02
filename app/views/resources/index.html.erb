@@ -7,6 +7,7 @@
     <tr>
       <th>Item name</th>
       <th>Points</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= resource.item_name %></td>
         <td><%= resource.points %></td>
+        <td><%= image_tag(resource.image, style: "width: 200px") if resource.image.attached? %></td>
         <td><%= link_to 'Show', resource %></td>
         <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
         <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
