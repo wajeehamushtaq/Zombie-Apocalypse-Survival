@@ -4,6 +4,7 @@
 <h1>Survivors</h1>
 
 <ul>
+<% if @survivor != current_user%>
   <% @survivors.each do |survivor| %>
     <li>
       <%= survivor.name %>
@@ -13,9 +14,10 @@
         <span><%= survivor.get_upvotes.size%></span>
         </button>
         <%if survivor.get_upvotes.size >= 5%>
-          <p>tererew</p>
-        <% else %>
-        <h2>wqewre</h2>
+          <% survivor.infected = true %>
+          <%= survivor.infected %>
+          <%else%>
+          <%= survivor.infected %>
         <%end%>
       <%end%>
 
@@ -26,6 +28,8 @@
       <%end%>
 
     </li>
+  <% end %>
+
   <% end %>
 </ul>
 
