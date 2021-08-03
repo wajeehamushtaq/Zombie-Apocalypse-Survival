@@ -12,6 +12,11 @@ class SurvivorsController < ApplicationController
 
   def upvote
     @survivor.upvote_from current_user
+    if @survivor.get_upvotes.size >= 5
+      @survivor.update(:infected => true)
+    else
+      @survivor.update(:infected => false)
+    end
     redirect_to survivors_index_path
   end
 

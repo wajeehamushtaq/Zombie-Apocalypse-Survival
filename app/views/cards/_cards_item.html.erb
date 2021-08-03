@@ -10,9 +10,6 @@
 
 
     <%= form_for item, remote: true do |f| %>
-
-
-
         <%= f.hidden_field :resource_id, :value => item.resource.id %>
         <%= f.number_field :quantity, :value => item.quantity.to_i %>
         <%= f.submit "Update Card "%>

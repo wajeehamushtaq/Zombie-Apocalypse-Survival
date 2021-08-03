@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Item name:</strong>
-  <%= @resource.item_name %>
-</p>
+<div class="d-flex justify-content-around">
+  <h3><%= @resource.item_name %></h3>
+  <div>
+    <%= link_to 'Edit', edit_resource_path(@resource) %> |
+    <%= link_to 'Back', resources_path %>
+  </div>
+</div>
+<br />
 
+<div class="text-center">
 <p>
   <strong>Points:</strong>
   <%= @resource.points %>
@@ -15,5 +20,4 @@
   <%= image_tag(@resource.image, style: "width: 200px") if @resource.image.attached? %>
 </p>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+</div>
