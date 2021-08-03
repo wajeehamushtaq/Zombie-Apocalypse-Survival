@@ -3,6 +3,13 @@
 
 <h1>Survivors</h1>
 
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline" action="/search">
+    <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
 <ul>
 <% if @survivor != current_user%>
   <% @survivors.each do |survivor| %>

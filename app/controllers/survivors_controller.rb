@@ -6,6 +6,10 @@ class SurvivorsController < ApplicationController
     @survivors = Survivor.all
   end
 
+  def search
+    @survivors = Survivor.where("name LIKE ?", "%" + params[:q] + "%")
+  end
+
   def upvote
     @survivor.upvote_from current_user
     redirect_to survivors_index_path

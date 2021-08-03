@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'survivors/index'
   get 'cards/show'
+  get '/search',to: "survivors#search"
   resources :resources
   resources :trades, only:[:index, :show]
   resources :order_items
