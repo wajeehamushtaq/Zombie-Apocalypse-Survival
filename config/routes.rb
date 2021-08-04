@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :trades, only:[:index, :show]
   resources :order_items
   resource :cards, only:[:show]
+  get "/infected_percentage", to: "survivors#infected_percentage"
   resources :survivors do
     member do
       put "like" => "survivors#upvote"

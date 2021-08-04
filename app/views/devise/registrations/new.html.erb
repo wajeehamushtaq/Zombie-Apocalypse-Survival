@@ -1,6 +1,5 @@
-<div class="text-center container">
-<h2>Sign up</h2>
-<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<div class="text-center container mt-4">
+<a class="navbar-brand logo-font" style="color: red; font-size: 50px;" href="#">Deathlok Survivals</a>
 <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
 
 
@@ -11,7 +10,7 @@
     <% if resource.avatar.attached? %>
       <%= image_tag(resource.avatar)%>
     <% else %>
-      <%= image_tag("default.jpg")%>
+      <%= image_tag("default.jpeg")%>
     <% end %>
   </div>
 
@@ -52,9 +51,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
   </div>
-
+  <br />
   <div class="actions">
-    <%= f.submit "Sign up" , class:"btn btn-lg btn-primary btn-block"  %>
+    <%= f.submit "Sign up" , class:"btn btn-lg btn-danger btn-block red-back"  %>
   </div>
 <% end %>
 

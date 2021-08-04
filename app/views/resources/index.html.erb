@@ -1,15 +1,16 @@
 <%= render 'navbar' %>
-<p id="notice"><%= notice %></p>
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-around">
   <h1>Resources</h1>
-  <%= link_to 'New Resource', new_resource_path %>
+  <h6>
+    <%= link_to 'New Resource', new_resource_path %>
+  </h6>
 </div>
-
+<br />
 <div class="text-center center">
     <div class="row">
     <% @resources.each do |resource| %>
-        <div class="col-md-3 col-xs-6 bg-light">
+        <div class="col-md-3 col-xs-6" style="background: black">
             <div class="icon">
                 <div class="thumbnail" > 
                     <%= image_tag(resource.image, style: "width: 200px; height: 200px") if resource.image.attached?%>

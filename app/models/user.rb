@@ -14,7 +14,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.variant(resize: "150x150!").processed
     else
-      "/default.jpg"
+      "/default.jpeg"
     end
   end
 
@@ -24,10 +24,10 @@ class User < ApplicationRecord
       avatar.attach(
         io: File.open(
           Rails.root.join(
-            'app', 'assets', 'images', 'default.jpg'
+            'app', 'assets', 'images', 'default.jpeg'
           )
-        ), filename: 'default.jpg',
-        content_type: 'image/jpg'
+        ), filename: 'default.jpeg',
+        content_type: 'image/jpeg'
       )
     end
   end
