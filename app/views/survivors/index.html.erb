@@ -19,7 +19,7 @@
       </ul>
       <form class="form-inline" action="/search">
     <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search <i class="fa fa-search"></i></button>
   </form>
     <div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +53,8 @@
 </nav>
 
 <div class="text-center center">
+  <h2>Survivors List</h2>
+  <br />
     <div class="row">
     <% @survivors.each do |survivor| %>
      <% if survivor.name != "Admin"%>
@@ -66,17 +68,18 @@
                     
                 </div>
                  <%= link_to like_survivor_path(survivor), class:"like", method: :put do%>
-                <button>Infected
+                <button class="btn btn-outline-success" style="">Uninfected <i class="fa fa-shield" aria-hidden="true"></i>
                 <span><%= survivor.get_upvotes.size%></span>
                 </button>
                 <%end%>
 
-            <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>
-              <button>Uninfected
-              <span><%= survivor.get_downvotes.size%></span>
-              </button>
-            <%end%>
-
+                <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>
+                  <button class="btn btn-outline-danger">Infected <i class='fas fa-skull-crossbones' ></i>
+                  <span><%= survivor.get_downvotes.size%></span>
+                  </button>
+                <%end%>
+                <br />
+                  <%= link_to "#{current_order.order_items.size} resources with a points of #{current_order.subtotal }", cards_path%>
             </div>
         </div>
         <% end %>

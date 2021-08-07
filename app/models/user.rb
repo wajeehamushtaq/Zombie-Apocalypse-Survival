@@ -9,10 +9,11 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
   acts_as_voter
+  #has_many :order_items
 
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize: "150x150!").processed
+      avatar.variant(resize: "150x150")
     else
       "/default.jpeg"
     end

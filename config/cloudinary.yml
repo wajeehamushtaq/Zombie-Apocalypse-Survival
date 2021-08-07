@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dgfwudeok
+  api_key: '679382668958623'
+  api_secret: v9sIj_DSaZx0ZEcJgB9-_FrVlzE
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dgfwudeok
+  api_key: '679382668958623'
+  api_secret: v9sIj_DSaZx0ZEcJgB9-_FrVlzE
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dgfwudeok
+  api_key: '679382668958623'
+  api_secret: v9sIj_DSaZx0ZEcJgB9-_FrVlzE
+  enhance_image_tag: true
+  static_file_support: false

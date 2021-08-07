@@ -1,11 +1,15 @@
 <%= render 'pages/admin' %>
-
-<h1>Generated Report</h1>
-
+<div class="text-center">
+<div class="d-flex justify-content-around text-danger">
+    <h1>Generated Report</h1>
+    <i class="fa fa-bar-chart" style="font-size: 38px" aria-hidden="true"></i>
+</div>
+<br />
 <h3>
-    Percentage of Infected users: <%= infected_percentage %> 
+    Percentage of Infected users: <span class="text-danger"><%= infected_percentage.to_i %>%</span>
 </h3>
 <br />
 <h3>
-    Percentage of Uninfected users: <%= uninfected_percentage %>
+    Percentage of Uninfected users: <span class="text-success"><%= uninfected_percentage.to_i %>%</span>
 </h3>
+</div>

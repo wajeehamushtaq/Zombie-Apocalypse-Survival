@@ -5,8 +5,10 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Use Postgres as the database for Active Record
+gem 'pg'
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -28,6 +30,9 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'geocoder'
 gem 'jquery-rails', '~> 4.4'
 gem 'acts_as_votable'
+gem 'cloudinary'
+gem 'pundit'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -66,3 +71,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :development, :test do
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-minitest' # or gem 'rubocop-rspec' depending on your test suite
+end

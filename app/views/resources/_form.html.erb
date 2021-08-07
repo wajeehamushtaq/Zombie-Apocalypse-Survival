@@ -1,6 +1,5 @@
 <div class="text-center container">
 <h2>Add new Resources</h2>
-<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 <h1 class="h3 mb-3 font-weight-normal">Please enter details</h1>
 
 <%= form_with(model: resource, local: true) do |form| %>
@@ -25,14 +24,14 @@
     <%= form.label :points %>
     <%= form.number_field :points, class:"form-control"  %>
   </div>
-
+  <br />
   <div class="field row">
-  <%= form.label :image%>
+  <%= form.label :image%> <br/>
   <%= form.file_field :image %>
   </div>
-
-  <div class="actions" >
-    <%= form.submit %>
+  <br />
+  <div class="actions">
+    <%= form.submit "Create Resource" , class:"btn btn-lg btn-danger btn-block red-back"  %>
   </div>
   <%= link_to 'Back', resources_path %>
 <% end %>
