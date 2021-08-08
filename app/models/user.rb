@@ -11,6 +11,12 @@ class User < ApplicationRecord
   acts_as_voter
   has_many :orders
 
+  validates :name, :age, :gender, :email, :address, presence: true
+  validates :email, uniqueness: true
+  validates :name, length: { maximum: 20 }
+  validates :age, numericality: { only_integer: true }
+  validates_format_of :email,:with => Devise::email_regexp
+
   def avatar_thumbnail
     if avatar.attached?
       avatar.variant(resize: "150x150")

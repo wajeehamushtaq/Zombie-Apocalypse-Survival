@@ -1,11 +1,11 @@
 class OrderItem < ApplicationRecord
     belongs_to :order
     belongs_to :resource
-    
-
-
     before_save :set_unit_price
     before_save :set_total
+
+    validates :quantity, :total, :unit_price, presence: true
+    validates :quantity, :total, :unit_price, numericality: true
 
     def unit_price
         if persisted?
