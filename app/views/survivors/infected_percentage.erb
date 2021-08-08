@@ -1,4 +1,58 @@
-<%= render 'pages/admin' %>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
+    <a class="navbar-brand logo-font" style="color: red; font-size: 30px;" href="#">Deathlok Survival</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto my-2 my-lg-0 ">
+       <li class="nav-item">
+            <p class="nav-link">
+             <%= link_to "Home", :root %>
+            </p>
+        </li>
+        <li class="nav-item">
+            <p class="nav-link">
+            <%= link_to "Resources", resources_path%>
+            </p>
+        </li>
+        <li class="nav-item">
+            <p class="nav-link">
+              <%= link_to "Report",infected_percentage_path %>
+            </p>
+        </li>
+      </ul>
+    <div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-list-4">
+        <ul class="navbar-nav">
+        <li class="nav-item dropdown dropleft">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag(current_user.avatar_thumbnail , size: "40x40")%>   
+          </a>
+          <ul
+          class="dropdown-menu dropdown-menu-end p-2"
+          aria-labelledby="navbarDropdownMenuLink"
+          >
+          <li>
+            <%= current_user.email%>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><%= link_to "Edit Account", edit_user_registration_path%></a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a>
+          </li>
+          </ul>
+        </li>   
+        </ul>
+        </div>
+      </div>
+    </div>
+    
+  </nav>
 <div class="text-center">
 <div class="d-flex justify-content-around text-danger">
     <h1>Generated Report</h1>

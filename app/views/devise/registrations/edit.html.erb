@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
-    <a class="navbar-brand logo-font" style="color: red; font-size: 30px;" href="#">Deathlok Survivals</a>
+    <a class="navbar-brand logo-font" style="color: red; font-size: 30px;" href="#">Deathlok Survival</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,8 +50,8 @@
 
 <div class="text-center container">
   <div class="d-flex justify-content-around">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-    <%= link_to "Back", :back %>
+    <h2>Edit <%= resource_name.to_s.humanize %> Profile</h2>
+    <%= link_to "Back", :back, class:"text-secondary" %>
   </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -83,6 +83,7 @@
   <div class="field row">
     <%= f.label :address %><br />
     <%= f.text_field :address, autofocus: true, class:"form-control"  %>
+    <br/>
     <p>
     Longitude
     <%= f.text_field :longitude, autofocus: true, disabled: true %>
@@ -95,7 +96,7 @@
 
   <div class="field row">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control"  %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control"  %><br/>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

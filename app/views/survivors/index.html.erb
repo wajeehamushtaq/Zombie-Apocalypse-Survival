@@ -1,11 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
-    <a class="navbar-brand logo-font" style="color: red; font-size: 30px;" href="#">Deathlok Survivals</a>
+    <a class="navbar-brand logo-font" style="color: red; font-size: 30px;" href="#">Deathlok Survival</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto my-2 my-lg-0">
+       <li class="nav-item">
+            <p class="nav-link">
+             <%= link_to "Home", :root %>
+            </p>
+        </li>
         <li class="nav-item">
             <p class="nav-link">
             <%= link_to "Trades", trades_path%>
@@ -64,22 +69,22 @@
                     <%= image_tag(survivor.avatar, style: "width: 200px; height: 200px")%>
                 </div>
                 <div class="caption">
-                    <h3><%= survivor.name%></h3>
-                    
+                    <h3><%= survivor.name%></h3>      
+                    <p><%= survivor.email%></p>                 
                 </div>
                  <%= link_to like_survivor_path(survivor), class:"like", method: :put do%>
-                <button class="btn btn-outline-success" style="">Uninfected <i class="fa fa-shield" aria-hidden="true"></i>
+                <button class="btn btn-outline-success" style=""><i class="fa fa-shield" aria-hidden="true"></i> Uninfected 
                 <span><%= survivor.get_upvotes.size%></span>
                 </button>
                 <%end%>
 
                 <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>
-                  <button class="btn btn-outline-danger">Infected <i class='fas fa-skull-crossbones' ></i>
+                  <button class="btn btn-outline-danger"><i class='fas fa-skull-crossbones' ></i> Infected 
                   <span><%= survivor.get_downvotes.size%></span>
                   </button>
                 <%end%>
                 <br />
-                  <%= link_to "#{current_order.order_items.size} resources with a points of #{current_order.subtotal }", cards_path%>
+                <%= link_to "#{current_order.order_items.size} resources with a points of #{current_order.subtotal }", cards_path%>
             </div>
         </div>
         <% end %>

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
   acts_as_voter
-  #has_many :order_items
+  has_many :orders
 
   def avatar_thumbnail
     if avatar.attached?

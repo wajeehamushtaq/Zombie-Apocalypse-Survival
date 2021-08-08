@@ -3,12 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .icon-background {
-    color: rgb(197, 30, 30);
+    color: rgb(197, 30, 30) !important;
 }
 .featurette-divider{
     color: grey;
 }
 .red-back{
     background-color: rgb(197, 30, 30) !important;
+}
+
+.section{
+    height: 60vh !important;
 }
 
