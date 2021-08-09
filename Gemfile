@@ -32,6 +32,7 @@ gem 'jquery-rails', '~> 4.4'
 gem 'acts_as_votable'
 gem 'cloudinary'
 gem 'pundit'
+gem 'rails_12factor', group: :production
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
