@@ -1,9 +1,22 @@
 <% if current_user %>
     <% if  current_user.email == "admin@gmail.com"%>
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Welcome!</strong> You are Signed in as Admin
+    </div>
     <%= render 'admin' %>
     <% elsif current_user.infected %>
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Welcome!</strong> You are Signed in as Infected
+    </div>
     <%= render 'infected' %>
     <%else%>
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Welcome!</strong> You are Signed in as Survivor
+    </div>
+
     <%= render 'survivor' %>
   <%end%>
 

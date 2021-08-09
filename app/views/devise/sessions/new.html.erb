@@ -3,6 +3,13 @@
 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <% if flash[:notice] %>
+          <p class="alert alert-info"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert] %>
+              <p class="alert alert-info"><%= flash[:alert] %></p>
+    <% end %>
+
   <div class="field row">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
