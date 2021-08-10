@@ -63,8 +63,10 @@
     <div class="row">
     <% @survivors.each do |survivor| %>
      <% if survivor.name != "Admin"%>
+     <% if survivor.id != @currentUser %>
         <div class="col-md-3 col-xs-6 " style="background: black">
             <div class="icon">
+                <br />
                 <div class="thumbnail" > 
                     <%= image_tag(survivor.avatar, style: "width: 200px; height: 200px")%>
                 </div>
@@ -73,13 +75,13 @@
                     <p><%= survivor.email%></p>                 
                 </div>
                  <%= link_to like_survivor_path(survivor), class:"like", method: :put do%>
-                <button class="btn btn-outline-success" style=""><i class="fa fa-shield" aria-hidden="true"></i> Uninfected 
-                <span><%= survivor.get_upvotes.size%></span>
+                 <button class="btn btn-outline-danger"><i class='fas fa-skull-crossbones' ></i> Infected 
+                 <span><%= survivor.get_upvotes.size%></span>
                 </button>
                 <%end%>
 
                 <%= link_to unlike_survivor_path(survivor), class:"like", method: :put do%>
-                  <button class="btn btn-outline-danger"><i class='fas fa-skull-crossbones' ></i> Infected 
+                  <button class="btn btn-outline-success" style=""><i class="fa fa-shield" aria-hidden="true"></i> Uninfected 
                   <span><%= survivor.get_downvotes.size%></span>
                   </button>
                 <%end%>
@@ -88,5 +90,6 @@
         </div>
         <% end %>
       <% end %>
+      <%end%>
     </div>
 </div>

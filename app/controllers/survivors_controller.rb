@@ -4,6 +4,7 @@ class SurvivorsController < ApplicationController
 
   def index
     @survivors = Survivor.all
+    @currentUser = current_user.id
   end
 
   def show
