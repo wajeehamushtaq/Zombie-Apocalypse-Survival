@@ -1,57 +1,71 @@
-<h2>Sign up</h2>
+<div class="text-center container mt-4">
+<a class="navbar-brand logo-font" style="color: red; font-size: 50px;" href="#">Deathlok Survival</a>
+<h1 class="h3 mb-3 font-weight-normal">Please enter details for Sign up</h1>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <% resource.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% end %>
+  <%# <%= render "devise/shared/error_messages", resource: resource %> %>
 
   <div class="field">
     <% if resource.avatar.attached? %>
       <%= image_tag(resource.avatar)%>
     <% else %>
-      <%= image_tag("/default.jpg")%>
+      <%= image_tag("default.jpg", width: "250", height: "250")%>
     <% end %>
   </div>
 
-  <div class="field">
+    <div class="field row">
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field row">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, autofocus: true, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :age %><br />
-    <%= f.text_field :age, autofocus: true %>
+    <%= f.text_field :age, autofocus: true, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender, autofocus: true %>
+    <%= f.text_field :gender, autofocus: true, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
+    <%= f.text_field :address, autofocus: true, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
   </div>
-
+  <br />
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" , class:"btn btn-lg btn-danger btn-block red-back"  %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+<br />

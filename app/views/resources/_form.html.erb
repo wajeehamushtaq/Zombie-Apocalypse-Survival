@@ -1,0 +1,40 @@
+<div class="text-center container">
+<h2>Add new Resources</h2>
+<h1 class="h3 mb-3 font-weight-normal">Please enter details</h1>
+
+<%= form_with(model: resource, local: true) do |form| %>
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+      <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field row">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name, class:"form-control"  %>
+  </div>
+
+  <div class="field row">
+    <%= form.label :points %>
+    <%= form.number_field :points, class:"form-control"  %>
+  </div>
+  <br />
+  <div class="field row">
+  <%= form.label :image%> <br/>
+  <%= form.file_field :image %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= form.submit "Create Resource" , class:"btn btn-lg btn-danger btn-block red-back"  %>
+  </div>
+  <%= link_to 'Back', resources_path %>
+<% end %>
+
+</div>
+

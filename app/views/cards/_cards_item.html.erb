@@ -1,0 +1,29 @@
+<%= render 'pages/navbar' %>
+<% @order_items.each do |item| %>
+    <div class="card bg-dark">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h3><%= item.resource.item_name %></h3>
+                <h5>Unit Points: <%= item.resource.points %></h5>
+                <%= form_for item, remote: true do |f| %>
+                    <%= f.hidden_field :resource_id, :value => item.resource.id %>
+                    <%= f.number_field :quantity, :value => item.quantity.to_i, class:"btn btn-outline-warning" %>
+                    <%= f.submit "Update Card ", class:"btn btn-outline-warning" %>
+
+                    <%= link_to "Remove Items", order_item_path(item), method: :delete, remote: true , class:"btn btn-outline-danger" %>
+
+                <% end %>
+                <br />
+                <h2>Subtotal: <%= item.total %></h2>
+            </div>
+            <%= image_tag item.resource.image%>
+        </div>
+        
+    </div>
+    </div>
+    <br/>
+<% end %>
+
+<h3 class="text-center text-success">Your current resources points has a Total of: <%= current_order.subtotal %></h3>
+<br />

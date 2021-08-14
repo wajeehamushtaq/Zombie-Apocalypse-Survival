@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Made with love by Mutiullah Samim*/
+
+ @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+ *{
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+ }
+
+ body{
+     background-color: black !important;
+     color: white !important;
+     font-family: 'Montserrat', sans-serif !important;
+ }
+
+.logo-font{
+    font-family: 'Creepster', cursive;
+    font-size: 40px;
+}

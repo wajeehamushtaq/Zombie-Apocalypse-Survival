@@ -8,10 +8,18 @@ class User < ApplicationRecord
   after_commit :add_default_avatar, on: %i[create update]
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+  acts_as_voter
+  has_many :orders
+
+  validates :name, :age, :gender, :email, :address, presence: true
+  validates :email, uniqueness: true
+  validates :name, length: { maximum: 20 }
+  validates :age, numericality: { only_integer: true }
+  validates_format_of :email,:with => Devise::email_regexp
 
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize: "150x150!").processed
+      avatar.variant(resize: "150x150")
     else
       "/default.jpg"
     end

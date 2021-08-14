@@ -1,14 +1,23 @@
-<h2>Log in</h2>
+<div class="text-center container mt-4">
+<a class="navbar-brand logo-font" style="color: red; font-size: 50px;" href="#">Deathlok Survival</a>
+<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+   <% if flash[:notice] %>
+          <p class="alert alert-info"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert] %>
+              <p class="alert alert-info"><%= flash[:alert] %></p>
+    <% end %>
+
+  <div class="field row">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field row">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,8 +28,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" , class:"btn btn-lg btn-danger btn-block red-back"  %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
